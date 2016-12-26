@@ -1,0 +1,12 @@
+.ios, .md {
+    dynamic-form {
+        .errorMessage {
+            .item-inner {
+                border-bottom: 0px;
+            }
+            p {
+                color: color($colors, danger)
+            }
+        }
+    }
+}
