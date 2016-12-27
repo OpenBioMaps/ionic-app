@@ -6,8 +6,7 @@ import { TextboxQuestion }  from '../dynamicForm/models/question-textbox';
 export class JsonConverter {
 
   // TODO Handle invalid json
-  static convert(jsonStr: string): QuestionBase<any>[] {
-    let json: any[] = JSON.parse(jsonStr);
+  static convert(json: any[]): QuestionBase<any>[] {
     let questions: QuestionBase<any>[] = [];
 
     json.forEach(object => {

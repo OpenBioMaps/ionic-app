@@ -1,43 +1,28 @@
 import { Injectable }       from '@angular/core';
+import { Http }             from '@angular/http';
 import { QuestionBase }     from '../models/question-base';
 import { JsonConverter }    from '../../utils/json-converter';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class QuestionService {
-  json: string = `[{
-      "key": "brave",
-      "questionType": "dropdown",
-      "label": "Bravery Rating",
-      "order": 3,
-      "options": [
-        {"key": "solid",  "value": "Solid"},
-        {"key": "great",  "value": "Great"},
-        {"key": "good",   "value": "Good"},
-        {"key": "unproven", "value": "Unproven"}
-      ]
-    }, {
-      "key": "firstName",
-      "questionType": "textbox",
-      "label": "First name",
-      "value": "Bombasto",
-      "required": true,
-      "order": 1
-    }, {
-      "key": "emailAddress",
-      "questionType": "textbox",
-      "label": "Email",
-      "type": "email",
-      "order": 2
-    }]`;
+  jsonUrl: string = 'https://raw.githubusercontent.com/OpenBioMaps/ionic-app/master/form.json';
 
-  // Todo: get from a remote source of question metadata
-  getQuestions(): Promise<QuestionBase<any>[]> {
-    let questions: QuestionBase<any>[] = JsonConverter.convert(this.json);
-
-    return Promise.resolve(questions.sort((a, b) => a.order - b.order));
+  constructor(public http: Http) {
   }
 
-  // See the "Take it slow" appendix
+  // TODO handle errors
+  // TODO json loading could be separated into another service
+  getQuestions(): Promise<QuestionBase<any>[]> {
+    return this.http.get(this.jsonUrl).toPromise()
+      .then(function(result) {
+        let json = result.json();
+        let questions: QuestionBase<any>[] = JsonConverter.convert(json);
+        return Promise.resolve(questions.sort((a, b) => a.order - b.order));
+      });
+  }
+
   getQuestionsSlowly(): Promise<QuestionBase<any>[]> {
     return new Promise<QuestionBase<any>[]>(resolve =>
       setTimeout(resolve, 2000)) // delay 2 seconds
