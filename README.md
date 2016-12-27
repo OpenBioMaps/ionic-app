@@ -4,7 +4,7 @@ The cross-platform client application for OpenBioMaps to support data collection
 ## Prerequisite
 Make sure you have a recent Node.js installation on your computer (Node.js 6 or greater) along with Cordova and the Ionic CLI.
 
-You can check to current Node.js version on your machine by typing `node --version` in the terminal.
+You can check the current Node.js version on your machine by typing `node --version` in the terminal.
 
 To install Ionic and Cordova use the following command in your terminal.
 `npm install -g ionic cordova`
