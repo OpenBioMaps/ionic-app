@@ -1,3 +1,5 @@
+![build status][build-status]
+
 # ionic-app
 The cross-platform client application for OpenBioMaps to support data collection on the field
 
@@ -21,3 +23,4 @@ ionic state restore
 After this you can run the app locally in the browser using the `ionic serve` command. You can run the app in an emulator using the `ionic emulate` or on a device using the `ionic run` commands.
 
 [ionic-install]: http://ionicframework.com/docs/v2/setup/installation/
+[build-status]: https://travis-ci.org/OpenBioMaps/ionic-app.svg?branch=master

@@ -24,7 +24,6 @@ export class MyApp {
       { title: 'Dynamic Form', component: Page1 },
       { title: 'Page Two', component: Page2 }
     ];
-
   }
 
   initializeApp() {

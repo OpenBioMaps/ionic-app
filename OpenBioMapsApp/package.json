@@ -37,12 +37,7 @@
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [
-    "ios",
-    {
-      "platform": "ios",
-      "version": "",
-      "locator": "ios"
-    }
+    "android"
   ],
   "description": "The cross-platform client application for OpenBioMaps to support data collection on the field"
 }
