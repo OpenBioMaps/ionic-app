@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { DynamicForm } from '../pages/dynamicForm/dynamicForm';
@@ -27,6 +28,9 @@ import { DynamicFormQuestionComponent } from '../dynamicForm/dynamic-form-questi
     DynamicForm,
     Settings
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Storage
+  ]
 })
 export class AppModule {}

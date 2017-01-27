@@ -16,7 +16,7 @@ export class QuestionService {
   // TODO json loading could be separated into another service
   getQuestions(): Promise<QuestionBase<any>[]> {
     return this.http.get(this.jsonUrl).toPromise()
-      .then(function(result) {
+      .then(result => {
         let json = result.json();
         let questions: QuestionBase<any>[] = JsonConverter.convert(json);
         return Promise.resolve(questions.sort((a, b) => a.order - b.order));
