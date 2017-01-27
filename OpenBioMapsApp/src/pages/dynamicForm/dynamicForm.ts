@@ -5,11 +5,11 @@ import { NavController } from 'ionic-angular';
 import { QuestionService } from '../../dynamicForm/services/question.service';
 
 @Component({
-  selector: 'page-page1',
-  templateUrl: 'page1.html',
+  selector: 'page-dynamic-form',
+  templateUrl: 'dynamicForm.html',
   providers:  [QuestionService]
 })
-export class Page1 {
+export class DynamicForm {
   questions: any[];
 
   constructor(public navCtrl: NavController, service: QuestionService) {
