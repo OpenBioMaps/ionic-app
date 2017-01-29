@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { DynamicForm } from '../pages/dynamicForm/dynamicForm';
+import { FormSelector } from '../pages/formSelector/formSelector';
 import { Settings } from '../pages/settings/settings';
 
 import { DynamicFormComponent }         from '../dynamicForm/dynamic-form.component';
@@ -14,6 +15,7 @@ import { DynamicFormQuestionComponent } from '../dynamicForm/dynamic-form-questi
   declarations: [
     MyApp,
     DynamicForm,
+    FormSelector,
     Settings,
     DynamicFormComponent,
     DynamicFormQuestionComponent
@@ -26,6 +28,7 @@ import { DynamicFormQuestionComponent } from '../dynamicForm/dynamic-form-questi
   entryComponents: [
     MyApp,
     DynamicForm,
+    FormSelector,
     Settings
   ],
   providers: [
