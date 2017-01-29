@@ -19,14 +19,22 @@ export class Settings {
               private toastCtrl: ToastController ) {
     this.settingsForm = this.formBuilder
       .group({
+        title: [''],
         url: ['', Validators.required]
       });
-    this.storage.getUrl().then(url => this.settingsForm.controls['url'].setValue(url));
+
+    this.storage
+      .getSettings()
+      .then(settings => {
+        if(settings) {
+          this.settingsForm.setValue(settings);
+        }
+      });
   }
 
   saveSettings() {
     this.storage
-      .setUrl(this.settingsForm.get('url').value)
+      .setSettings(this.settingsForm.value)
       .then(() => this.showSavedToast());
   }
 

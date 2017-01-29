@@ -11,6 +11,10 @@
   <form [formGroup]="settingsForm" (ngSubmit)="saveSettings()">
     <ion-list>
       <ion-item>
+        <ion-label floating>Title</ion-label>
+        <ion-input type="text" formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item>
         <ion-label floating>Url</ion-label>
         <ion-input type="text" formControlName="url"></ion-input>
       </ion-item>
