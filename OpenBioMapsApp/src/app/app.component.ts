@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { DynamicForm } from '../pages/dynamicForm/dynamicForm';
+import { FormSelector } from '../pages/formSelector/formSelector';
 import { Settings } from '../pages/settings/settings';
 
 
@@ -12,7 +12,7 @@ import { Settings } from '../pages/settings/settings';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = DynamicForm;
+  rootPage: any = FormSelector;
 
   pages: Array<{title: string, component: any}>;
 
@@ -21,7 +21,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Dynamic Form', component: DynamicForm },
+      { title: 'Form Selector', component: FormSelector },
       { title: 'Settings', component: Settings }
     ];
   }

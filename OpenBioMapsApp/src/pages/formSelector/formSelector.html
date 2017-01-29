@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Select form</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Url</ion-label>
+      <ion-input type="text" [(ngModel)]="url" name="url" disabled></ion-input>
+    </ion-item>
+    <button ion-item *ngFor="let form of forms" (click)="onItemClick($event, form)">
+      {{form.id}}
+      <div class="item-note" item-right>
+        {{form.visibility}}
+      </div>
+    </button>
+  </ion-list>
+  <div *ngIf="error" padding>
+    <b>{{error}}</b>
+  </div>
+</ion-content>

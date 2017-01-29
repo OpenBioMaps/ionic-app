@@ -8,17 +8,22 @@ import 'rxjs/add/operator/toPromise';
 export class StorageService {
   private static readonly KEY_SETTINGS = 'settings';
 
-  private storage;
+  constructor(private storage: Storage) {
+  }
 
-  constructor(storage: Storage) {
-    this.storage = storage;
+  setKey(key: string, value: any): Promise<any> {
+    return this.storage.set(key, value);
+  }
+
+  getKey(key: string): Promise<any> {
+    return this.storage.get(key);
   }
 
   setSettings(settings: any): Promise<any> {
-    return this.storage.set(StorageService.KEY_SETTINGS, settings);
+    return this.setKey(StorageService.KEY_SETTINGS, settings);
   }
 
   getSettings(): Promise<any> {
-    return this.storage.get(StorageService.KEY_SETTINGS);
+    return this.getKey(StorageService.KEY_SETTINGS);
   }
 }
