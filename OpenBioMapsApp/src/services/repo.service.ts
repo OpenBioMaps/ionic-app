@@ -25,7 +25,7 @@ export class RepoService {
         })
         .then(response => {
             if(!response) {
-              throw 'Response is empty';
+              throw 'Exception: Response is empty';
             }
             return response;
         });

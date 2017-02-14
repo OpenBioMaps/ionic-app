@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
+import { DynamicForm } from '../pages/dynamicForm/dynamicForm';
 import { FormSelector } from '../pages/formSelector/formSelector';
 import { Settings } from '../pages/settings/settings';
 
@@ -14,7 +15,7 @@ export class MyApp {
 
   rootPage: any = FormSelector;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, params?: any}>;
 
   constructor(public platform: Platform) {
     this.initializeApp();
@@ -22,7 +23,8 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Form Selector', component: FormSelector },
-      { title: 'Settings', component: Settings }
+      { title: 'Settings', component: Settings },
+      { title: 'DynamicForm', component: DynamicForm, params: {url: 'https://raw.githubusercontent.com/OpenBioMaps/ionic-app/master/form.json'} },
     ];
   }
 
@@ -38,6 +40,6 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.setRoot(page.component, page.params);
   }
 }

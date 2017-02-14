@@ -1,5 +1,4 @@
 import { Injectable }   from '@angular/core';
-import { Http }         from '@angular/http';
 
 import { RepoService } from './repo.service';
 
@@ -8,6 +7,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ObmApiService {
+  // TODO let us set the baseurl
   private static readonly GET_FORMS = 'get_api_forms';
   private static readonly GET_FORM = 'get_api_form';
 

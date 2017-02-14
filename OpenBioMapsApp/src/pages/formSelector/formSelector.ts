@@ -39,9 +39,10 @@ export class FormSelector {
       });
   }
 
-  onItemClick(event, item) {
+  onItemClick(event, form) {
     this.navCtrl.push(DynamicForm, {
-      item: item
+      url: this.url,
+      id: form.id
     });
   }
 }

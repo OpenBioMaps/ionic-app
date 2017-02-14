@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <div>
-    <h2>Madármegfigyelés</h2>
+    <p>url: {{url}}, formId: {{formId}}</p>
 
     <dynamic-form *ngIf="questions" [questions]="questions"></dynamic-form>
     <div *ngIf="!questions">Loading...</div>

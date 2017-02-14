@@ -1,31 +1,35 @@
 import { Injectable }       from '@angular/core';
-import { Http }             from '@angular/http';
+
 import { QuestionBase }     from '../models/question-base';
+import { ObmApiService }    from '../../services/obmApi.service';
+import { RepoService }      from '../../services/repo.service';
 import { JsonConverter }    from '../../utils/json-converter';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class QuestionService {
-  jsonUrl: string = 'https://raw.githubusercontent.com/OpenBioMaps/ionic-app/master/form.json';
 
-  constructor(public http: Http) {
+  constructor(private api: ObmApiService,
+              private repo: RepoService) { }
+
+  getQuestions(url: string, id: number): Promise<QuestionBase<any>[]> {
+    if(id) {
+      return this.api.loadForm(url, id)
+        .then(json => {
+          let questions: QuestionBase<any>[] = JsonConverter.convert(json);
+          return Promise.resolve(questions.sort((a, b) => a.order - b.order));
+        });
+    } else {
+      // TODO We will not need this
+      return this.repo.loadUrl(url)
+        .then(json => {
+          let questions: QuestionBase<any>[] = JsonConverter.convert(json);
+          return Promise.resolve(questions.sort((a, b) => a.order - b.order));
+        });
+    }
   }
 
-  // TODO handle errors
-  // TODO json loading could be separated into another service
-  getQuestions(): Promise<QuestionBase<any>[]> {
-    return this.http.get(this.jsonUrl).toPromise()
-      .then(result => {
-        let json = result.json();
-        let questions: QuestionBase<any>[] = JsonConverter.convert(json);
-        return Promise.resolve(questions.sort((a, b) => a.order - b.order));
-      });
-  }
-
-  getQuestionsSlowly(): Promise<QuestionBase<any>[]> {
-    return new Promise<QuestionBase<any>[]>(resolve =>
-      setTimeout(resolve, 2000)) // delay 2 seconds
-      .then(() => this.getQuestions());
+  getQuestionsSlowly(url: string, id: number): Promise<QuestionBase<any>[]> {
+    return new Promise<QuestionBase<any>[]>(resolve => setTimeout(resolve, 2000))
+      .then(() => this.getQuestions(url, id));
   }
 }
