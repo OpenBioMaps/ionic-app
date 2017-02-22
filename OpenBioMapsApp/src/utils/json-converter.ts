@@ -1,6 +1,7 @@
 import { QuestionBase }     from '../dynamicForm/models/question-base';
 import { DropdownQuestion } from '../dynamicForm/models/question-dropdown';
 import { TextboxQuestion }  from '../dynamicForm/models/question-textbox';
+import { UnknownQuestion } from '../dynamicForm/models/question-unknown';
 
 
 export class JsonConverter {
@@ -15,7 +16,7 @@ export class JsonConverter {
       console.log(object);
 
       let question: QuestionBase<any>;
-      switch (object.questionType) {
+      switch (object.type) {
         case 'textbox':
           question = new TextboxQuestion(object);
           break;
@@ -24,7 +25,7 @@ export class JsonConverter {
           break;
         default:
           // TODO Add default question model
-          question = new QuestionBase<any>();
+          question = new UnknownQuestion(object);
           break;
       }
       questions.push(question);
