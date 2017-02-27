@@ -1,5 +1,5 @@
-import { Injectable }   from '@angular/core';
-import { Http }         from '@angular/http';
+import { Injectable }     from '@angular/core';
+import { Http, Headers }  from '@angular/http';
 
 import { StorageService } from './storage.service';
 
@@ -29,5 +29,22 @@ export class RepoService {
             }
             return response;
         });
+    }
+
+    upload(url: string) {
+      var fd = new FormData();
+      fd.append('test_text', 'Hey');
+      fd.append('test_int', 20);
+
+      var headers = new Headers();
+      //headers.append('Content-Type', 'multipart/form-data');
+
+      this.http.post(url, fd, {headers: headers})
+      .toPromise()
+      .then(function (data) {
+        console.log(data);
+      }).catch(function (error) {
+        console.log(error);
+      });
     }
 }

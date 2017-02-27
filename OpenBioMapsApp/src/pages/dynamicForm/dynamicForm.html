@@ -11,7 +11,7 @@
   <div>
     <p>url: {{url}}, formId: {{formId}}</p>
 
-    <dynamic-form *ngIf="questions" [questions]="questions"></dynamic-form>
+    <dynamic-form *ngIf="questions" [questions]="questions" (onSubmitted)="onSubmitted($event)"></dynamic-form>
     <div *ngIf="!questions">Loading...</div>
   </div>
 </ion-content>

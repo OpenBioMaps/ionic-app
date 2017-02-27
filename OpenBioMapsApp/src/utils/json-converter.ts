@@ -3,10 +3,8 @@ import { DropdownQuestion } from '../dynamicForm/models/question-dropdown';
 import { TextboxQuestion }  from '../dynamicForm/models/question-textbox';
 import { UnknownQuestion } from '../dynamicForm/models/question-unknown';
 
-
 export class JsonConverter {
 
-  // TODO Handle invalid json
   // TODO Remove logs
   static convert(json: any[]): QuestionBase<any>[] {
     let questions: QuestionBase<any>[] = [];
@@ -24,7 +22,6 @@ export class JsonConverter {
           question = new DropdownQuestion(object);
           break;
         default:
-          // TODO Add default question model
           question = new UnknownQuestion(object);
           break;
       }

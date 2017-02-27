@@ -22,4 +22,8 @@ export class ObmApiService {
     url += '&' + ObmApiService.GET_FORM + '=' + id.toString();
     return this.repo.loadUrl(url);
   }
+
+  upload(json: string, url: string = 'http://aries.ektf.hu/~szugyi/upload.php') {
+    return this.repo.upload(url);
+  }
 }

@@ -4,13 +4,11 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { DynamicForm } from '../dynamicForm/dynamicForm';
 import { ObmApiService } from '../../services/obmApi.service';
-import { RepoService } from '../../services/repo.service';
 import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'page-form-selector',
-  templateUrl: 'formSelector.html',
-  providers:  [ ObmApiService, RepoService, StorageService ]
+  templateUrl: 'formSelector.html'
 })
 export class FormSelector {
   error: any;

@@ -6,8 +6,7 @@ import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'page-settings',
-  templateUrl: 'settings.html',
-  providers:  [ StorageService ]
+  templateUrl: 'settings.html'
 })
 export class Settings {
   settingsForm: FormGroup;

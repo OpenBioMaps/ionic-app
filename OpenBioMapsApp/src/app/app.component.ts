@@ -6,9 +6,13 @@ import { DynamicForm } from '../pages/dynamicForm/dynamicForm';
 import { FormSelector } from '../pages/formSelector/formSelector';
 import { Settings } from '../pages/settings/settings';
 
+import { ObmApiService } from '../services/obmApi.service';
+import { RepoService } from '../services/repo.service';
+import { StorageService } from '../services/storage.service';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers:  [ObmApiService, RepoService, StorageService]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -23,8 +27,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Form Selector', component: FormSelector },
-      { title: 'Settings', component: Settings },
-      { title: 'DynamicForm', component: DynamicForm, params: {url: 'https://raw.githubusercontent.com/OpenBioMaps/ionic-app/master/form.json'} },
+      { title: 'Settings', component: Settings }
     ];
   }
 
