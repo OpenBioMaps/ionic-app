@@ -1,11 +1,11 @@
 import { QuestionBase } from './question-base';
 
 export class TextboxQuestion extends QuestionBase<string> {
-  Type = 'text';
-  type: string;
+  type = 'text';
+  controlType: string;
 
   constructor(options: {} = {}) {
     super(options);
-    this.type = options['type'] || '';
+    this.controlType = options['controlType'] || '';
   }
 }

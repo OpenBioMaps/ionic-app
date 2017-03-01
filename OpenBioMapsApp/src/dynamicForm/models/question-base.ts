@@ -6,8 +6,8 @@ export class QuestionBase<T>{
   list: string;
   length: string;
   count: string;
-  type: string;
   obl: string;
+  type: string;
   //api_params missing
   //genlist missing
 
@@ -16,7 +16,7 @@ export class QuestionBase<T>{
   label: string;
   required: boolean;
   order: number;
-  controlType: string;
+ 
   constructor(options: {
       description?: string,
       default_value?: string,
@@ -25,15 +25,15 @@ export class QuestionBase<T>{
       list?: string,
       length?: string,
       count?: string,
-      type?: string,
       obl?: string,
+      type?:string;
 
       value?: T,
       key?: string,
       label?: string,
       required?: boolean,
-      order?: number,
-      controlType?: string
+      order?: number
+     
     } = {}) {
     this.description = options.description || '';
     this.default_value = options.default_value || '';
@@ -42,15 +42,15 @@ export class QuestionBase<T>{
     this.list = options.list || '';
     this.length = options.length || '';
     this.count = options.count;
-    this.type = options.type;
     this.obl = options.obl || '';
+    this.type = options.type || '';
 
     this.value = options.value;
     this.key = options.key || '';
     this.label = options.label || '';
     this.required = !!options.required;
     this.order = options.order === undefined ? 1 : options.order;
-    this.controlType = options.controlType || '';
+    
   
   }
 }

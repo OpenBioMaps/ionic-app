@@ -2,7 +2,7 @@
   <ion-item *ngSwitchCase="'text'" [formGroup]="form">
     <ion-label floating>{{question.short_name}}</ion-label>
     <ion-input [formControlName]="question.key"
-        [id]="question.key" [type]="question.type">
+        [id]="question.key" [type]="question.controlType">
     </ion-input>
   </ion-item>
 
