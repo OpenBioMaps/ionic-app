@@ -15,7 +15,24 @@
 
   <ion-item *ngSwitchCase="'unknown'" [formGroup]="form">
     <ion-label floating>{{question.short_name}}</ion-label>
-    <p>{{question.column}}</p>
+  </ion-item>
+
+  <ion-item *ngSwitchCase="'numeric'" [formGroup]="form">
+    <ion-label floating>{{question.short_name}}</ion-label>
+    <ion-input [formControlName]="question.key"
+        [id]="question.key" [type]="question.controlType">
+    </ion-input>
+  </ion-item>
+
+  <ion-item *ngSwitchCase="'date'" [formGroup]="form">
+    <ion-label floating>{{question.short_name}}</ion-label>
+    <ion-input [formControlName]="question.key"
+        [id]="question.key" [type]="question.controlType">
+    </ion-input>
+  </ion-item>
+
+   <ion-item *ngSwitchCase="'boolen'" [formGroup]="form">
+    <ion-checkbox ng-model="isChecked">{{question.short_name}}</ion-checkbox>
   </ion-item>
 
   <ion-item class="errorMessage" *ngIf="hasError('required')">
