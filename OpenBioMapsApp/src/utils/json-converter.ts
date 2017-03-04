@@ -5,6 +5,8 @@ import { UnknownQuestion } from '../dynamicForm/models/question-unknown';
 import { NumericQuestion } from '../dynamicForm/models/question-numeric';
 import { DateQuestion } from '../dynamicForm/models/question-date';
 import { BooleanQuestion } from '../dynamicForm/models/question-boolean';
+import { PointQuestion } from '../dynamicForm/models/question-point';
+import { AutoCompleteQuestion } from '../dynamicForm/models/question-autocomplete';
 
 export class JsonConverter {
 
@@ -32,6 +34,12 @@ export class JsonConverter {
           break;
         case 'boolen':
           question = new BooleanQuestion(object);
+          break;
+        case 'point':
+          question = new PointQuestion(object);
+          break;
+        case 'autocomplete':
+          question = new AutoCompleteQuestion(object);
           break;
         default:
           question = new UnknownQuestion(object);
