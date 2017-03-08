@@ -1,5 +1,5 @@
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <ion-list>
+    <ion-list no-lines>
       <div *ngFor="let question of questions">
         <df-question [question]="question" [form]="form"></df-question>
       </div>
