@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="6801bc79a36cc0a21156ed2e417e57ab21afd172" datatype="html">
+        <source>Save</source>
+        <target/>
+        <note priority="1" from="description">Save</note>
+        <note priority="1" from="meaning">Save</note>
+      </trans-unit>
+      <trans-unit id="c1c0eeee63dacd8be943443efcf0b49424b02470" datatype="html">
+        <source>Mentés</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

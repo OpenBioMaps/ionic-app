@@ -14,6 +14,21 @@
   <!-- cordova.js required for cordova apps -->
   <script src="cordova.js"></script>
 
+  <script>
+  // Get the locale id somehow
+  document.locale = 'es';
+
+  // Map to the text plugin
+  System.config({
+    map: {
+      text: 'systemjs-text-plugin.js'
+    }
+  });
+
+  // Launch the app
+  System.import('main.js').catch(function(err){ console.error(err); });
+</script>
+
   <!-- un-comment this code to enable service worker
   <script>
     if ('serviceWorker' in navigator) {
