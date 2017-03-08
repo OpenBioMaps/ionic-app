@@ -1,1 +1,0 @@
-{"version":3,"file":"question-point.js","sourceRoot":"","sources":["question-point.ts"],"names":[],"mappings":";;;;;OAAO,EAAE,YAAY,EAAE,MAAM,iBAAiB;AAE9C;IAAmC,iCAAoB;IAIrD,uBAAY,OAAgB;QAAhB,uBAAgB,GAAhB,YAAgB;QAC1B,kBAAM,OAAO,CAAC,CAAC;QAJjB,SAAI,GAAG,OAAO,CAAC;QAKb,IAAI,CAAC,WAAW,GAAG,OAAO,CAAC,aAAa,CAAC,IAAI,EAAE,CAAC;IAClD,CAAC;IACH,oBAAC;AAAD,CAAC,AARD,CAAmC,YAAY,GAQ9C"}
