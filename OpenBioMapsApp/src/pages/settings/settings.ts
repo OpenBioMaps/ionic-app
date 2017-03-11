@@ -3,6 +3,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { StorageService } from '../../services/storage.service';
+import { SettingsModel } from '../../models/settings';
 
 @Component({
   selector: 'page-settings',
@@ -32,8 +33,9 @@ export class Settings {
   }
 
   saveSettings() {
+    let settings: SettingsModel = new SettingsModel(this.settingsForm.value);
     this.storage
-      .setSettings(this.settingsForm.value)
+      .setSettings(settings)
       .then(() => this.showSavedToast());
   }
 

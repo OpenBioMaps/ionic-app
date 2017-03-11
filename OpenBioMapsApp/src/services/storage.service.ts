@@ -1,8 +1,7 @@
 import { Injectable }       from '@angular/core';
 import { Storage } from '@ionic/storage';
 
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
+import { SettingsModel } from '../models/settings'
 
 @Injectable()
 export class StorageService {
@@ -19,11 +18,14 @@ export class StorageService {
     return this.storage.get(key);
   }
 
-  setSettings(settings: any): Promise<any> {
+  setSettings(settings: SettingsModel): Promise<any> {
     return this.setKey(StorageService.KEY_SETTINGS, settings);
   }
 
-  getSettings(): Promise<any> {
-    return this.getKey(StorageService.KEY_SETTINGS);
+  getSettings(): Promise<SettingsModel> {
+    return this.getKey(StorageService.KEY_SETTINGS)
+      .then(json => {
+        return new SettingsModel(json);
+      });
   }
 }
