@@ -6,13 +6,14 @@ import { DynamicForm } from '../pages/dynamicForm/dynamicForm';
 import { FormSelector } from '../pages/formSelector/formSelector';
 import { Settings } from '../pages/settings/settings';
 
+import { DatabaseService } from '../services/database.service';
 import { ObmApiService } from '../services/obmApi.service';
 import { RepoService } from '../services/repo.service';
 import { StorageService } from '../services/storage.service';
 
 @Component({
   templateUrl: 'app.html',
-  providers:  [ObmApiService, RepoService, StorageService]
+  providers:  [DatabaseService, ObmApiService, RepoService, StorageService]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -21,9 +22,17 @@ export class MyApp {
 
   pages: Array<{title: string, component: any, params?: any}>;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform,
+    private db: DatabaseService) {
     this.initializeApp();
-
+    this.db.init()
+      .then(() => {
+        this.db.loadAllForms()
+          .then(res => {
+            console.log(JSON.stringify(res));
+          })
+      });
+  
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Form Selector', component: FormSelector },
