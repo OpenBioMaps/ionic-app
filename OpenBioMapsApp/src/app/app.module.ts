@@ -11,6 +11,9 @@ import { Settings } from '../pages/settings/settings';
 import { DynamicFormComponent }         from '../dynamicForm/dynamic-form.component';
 import { DynamicFormQuestionComponent } from '../dynamicForm/dynamic-form-question.component';
 
+import { Http } from '@angular/http';
+import { TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-translate/ng2-translate';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -22,7 +25,13 @@ import { DynamicFormQuestionComponent } from '../dynamicForm/dynamic-form-questi
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    IonicModule.forRoot(MyApp),
+    TranslateModule.forRoot({
+    provide: TranslateLoader,
+    useFactory: (createTranslateLoader),
+    deps: [Http]
+  })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,3 +46,8 @@ import { DynamicFormQuestionComponent } from '../dynamicForm/dynamic-form-questi
   ]
 })
 export class AppModule {}
+
+
+export function createTranslateLoader(http: Http) {
+  return new TranslateStaticLoader(http, 'assets/i18n', '.json');
+}

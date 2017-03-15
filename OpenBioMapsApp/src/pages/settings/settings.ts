@@ -5,6 +5,11 @@ import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { StorageService } from '../../services/storage.service';
 import { SettingsModel } from '../../models/settings';
 
+import { Http } from '@angular/http';
+import { TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-translate/ng2-translate';
+
+import { TranslateService } from 'ng2-translate';
+
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html'
@@ -16,12 +21,17 @@ export class Settings {
               public navParams: NavParams,
               private storage: StorageService,
               private formBuilder: FormBuilder,
-              private toastCtrl: ToastController ) {
+              private toastCtrl: ToastController,
+              translate: TranslateService,
+              public translateService: TranslateService ) {
     this.settingsForm = this.formBuilder
       .group({
         title: [''],
-        url: ['', Validators.required]
+        url: ['', Validators.required],
+        language: ['']
       });
+
+      translate.setDefaultLang('hu');
 
     this.storage
       .getSettings()
@@ -46,4 +56,8 @@ export class Settings {
     });
     toast.present();
   }
+
+  translate(language){
+        this.translateService.use(language);
+      }
 }

@@ -4,7 +4,7 @@
         <df-question [question]="question" [form]="form"></df-question>
       </div>
       <ion-item>
-        <button ion-button large block [disabled]="!form.valid" i18n="Save|Save">Save</button>
+        <button ion-button large block [disabled]="!form.valid">{{ "SAVE" | translate }}</button>
       </ion-item>
     </ion-list>
   </form>

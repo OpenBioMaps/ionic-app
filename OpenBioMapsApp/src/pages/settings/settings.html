@@ -18,6 +18,15 @@
         <ion-label floating>Url</ion-label>
         <ion-input type="text" formControlName="url"></ion-input>
       </ion-item>
+
+      <ion-item>
+        <ion-label>{{ "LANGUAGE" | translate }}</ion-label>
+          <ion-select formControlName="language" okText="Ok" cancelText='{{ "CANCEL" | translate }}' onchange="translate(language)">
+            <ion-option value="en">English</ion-option>
+            <ion-option value="hu">Magyar</ion-option>
+          </ion-select>
+      </ion-item>
+
       <ion-item>
         <button ion-button large block type="submit" [disabled]="!settingsForm.valid">Save</button>
       </ion-item>
