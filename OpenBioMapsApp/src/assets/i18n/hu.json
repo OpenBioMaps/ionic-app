@@ -1,5 +1,9 @@
 {
-    "SAVE":"Mentés",
+    "SAVE": "Mentés",
     "CANCEL": "Mégse",
-    "LANGUAGE": "Nyelv"
+    "LANGUAGE": "Nyelv",
+    "SETTINGS": "Beállítások",
+    "TITLE": "Cím",
+    "FORM_SELECTOR": "Form választó",
+    "MENU": "Menü"
 }

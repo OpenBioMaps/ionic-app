@@ -11,6 +11,8 @@ import { ObmApiService } from '../services/obmApi.service';
 import { RepoService } from '../services/repo.service';
 import { StorageService } from '../services/storage.service';
 
+import { TranslateService } from 'ng2-translate';
+
 @Component({
   templateUrl: 'app.html',
   providers:  [DatabaseService, ObmApiService, RepoService, StorageService]
@@ -22,15 +24,12 @@ export class MyApp {
 
   pages: Array<{title: string, component: any, params?: any}>;
 
-<<<<<<< HEAD
-  constructor(public platform: Platform) {
 
-
-=======
   constructor(public platform: Platform,
-    private db: DatabaseService) {
->>>>>>> b92c2b8b805b2eb1c797732eb12fa34e35e72265
+    private db: DatabaseService,
+    translate: TranslateService) {
     this.initializeApp();
+    translate.setDefaultLang('en');
     this.db.init()
       .then(() => {
         this.db.loadAllForms()

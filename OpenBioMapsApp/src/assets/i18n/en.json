@@ -1,5 +1,9 @@
 {
     "SAVE": "Save",
     "CANCEL": "Cancel",
-    "LANGUAGE": "Language"
+    "LANGUAGE": "Language",
+    "SETTINGS": "Settings",
+    "TITLE": "Title",
+    "FORM_SELECTOR": "Form Selector",
+    "MENU": "Menu"
 }

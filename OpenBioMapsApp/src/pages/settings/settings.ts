@@ -22,7 +22,6 @@ export class Settings {
               private storage: StorageService,
               private formBuilder: FormBuilder,
               private toastCtrl: ToastController,
-              translate: TranslateService,
               public translateService: TranslateService ) {
     this.settingsForm = this.formBuilder
       .group({
@@ -31,13 +30,13 @@ export class Settings {
         language: ['']
       });
 
-      translate.setDefaultLang('hu');
 
     this.storage
       .getSettings()
       .then(settings => {
         if(settings) {
           this.settingsForm.setValue(settings);
+          this.translateService.setDefaultLang(settings.language);
         }
       });
   }
@@ -47,6 +46,8 @@ export class Settings {
     this.storage
       .setSettings(settings)
       .then(() => this.showSavedToast());
+      this.translateService.setDefaultLang(settings.language);
+      
   }
 
   showSavedToast() {
@@ -56,8 +57,4 @@ export class Settings {
     });
     toast.present();
   }
-
-  translate(language){
-        this.translateService.use(language);
-      }
 }
