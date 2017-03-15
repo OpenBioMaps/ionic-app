@@ -39,6 +39,7 @@
     "cordova-plugin-console",
     "cordova-plugin-device",
     "cordova-plugin-splashscreen",
+    "cordova-sqlite-storage",
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [

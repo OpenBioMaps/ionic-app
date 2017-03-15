@@ -4,7 +4,9 @@ import { FormGroup } from '@angular/forms';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 
 import { QuestionService } from '../../dynamicForm/services/question.service';
+import { DatabaseService } from '../../services/database.service';
 import { ObmApiService } from '../../services/obmApi.service';
+import { ObmForm } from '../../models/obmForm';
 
 @Component({
   selector: 'page-dynamic-form',
@@ -18,6 +20,7 @@ export class DynamicForm {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
+    private db: DatabaseService,
     private questionService: QuestionService,
     private api: ObmApiService,
     private toastCtrl: ToastController) {
@@ -31,6 +34,13 @@ export class DynamicForm {
   onSubmitted(form: FormGroup) {
     this.api.upload(JSON.stringify(form.value));
     this.showToast();
+
+    let formData = new ObmForm({
+        url: this.url,
+        data: JSON.stringify(form.value)
+      }
+    )
+    this.db.saveForm(formData);
   }
 
   showToast() {

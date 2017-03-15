@@ -13,8 +13,7 @@ export class SettingsModel {
     }
 
     this.title = json.title || '';
-    this.url = json.url || '';
+    this.url = json.url || 'http://openbiomaps.org/pds/service.php?service=PFS&table=dinpi';
     this.language = json.language || '';
-    console.log("SettingsModel constructor");
   }
 }
