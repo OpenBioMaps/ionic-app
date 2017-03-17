@@ -5,6 +5,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { DynamicForm } from '../pages/dynamicForm/dynamicForm';
 import { FormSelector } from '../pages/formSelector/formSelector';
 import { Settings } from '../pages/settings/settings';
+import { NoteList } from '../pages/noteList/noteList';
 
 import { DatabaseService } from '../services/database.service';
 import { ObmApiService } from '../services/obmApi.service';
@@ -40,8 +41,9 @@ export class MyApp {
   
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Form Selector', component: FormSelector },
-      { title: 'Settings', component: Settings }
+      { title: 'FORM_SELECTOR', component: FormSelector },
+      { title: 'SETTINGS', component: Settings },
+      { title: 'NOTELIST', component: NoteList}
     ];
   }
 

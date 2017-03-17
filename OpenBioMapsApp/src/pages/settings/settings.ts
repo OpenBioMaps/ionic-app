@@ -36,7 +36,7 @@ export class Settings {
       .then(settings => {
         if(settings) {
           this.settingsForm.setValue(settings);
-          this.translateService.setDefaultLang(settings.language);
+          translateService.setDefaultLang(settings.language);
         }
       });
   }
