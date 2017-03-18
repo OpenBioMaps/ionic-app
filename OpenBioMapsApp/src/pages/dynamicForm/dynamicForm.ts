@@ -40,7 +40,10 @@ export class DynamicForm {
         data: JSON.stringify(form.value)
       }
     )
-    this.db.saveForm(formData);
+    this.db.saveForm(formData)
+      .catch(error => {
+        console.log(error);
+      })
   }
 
   showToast() {

@@ -42,6 +42,8 @@ export class ObmForm {
   }
 
   public insert(db: SQLite): Promise<any> {
-    return db.executeSql(ObmForm.INSERT_SQL, [this.url,  this.data]);
+    return db.executeSql(ObmForm.INSERT_SQL, [this.url,  this.data]).catch(error => {
+        console.log("DB ERROR: " + JSON.stringify(error));
+      });
   }
 }

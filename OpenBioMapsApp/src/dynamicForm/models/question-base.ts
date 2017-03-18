@@ -46,7 +46,7 @@ export class QuestionBase<T>{
     this.type = options.type || '';
 
     this.value = options.value;
-    this.key = options.key || '';
+    this.key = options.column || '';
     this.label = options.label || '';
     this.required = !!options.required;
     this.order = options.order === undefined ? 1 : options.order;

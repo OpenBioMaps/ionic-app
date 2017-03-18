@@ -24,10 +24,18 @@ export class DatabaseService {
   }
 
   public saveForm(data: ObmForm): Promise<any> {
+    if(!this.database) {
+      return Promise.reject(new Error('No local database connection!'));
+    }
+
     return data.insert(this.database);
   }
 
   public loadAllForms(): Promise<ObmForm[]> {
+    if(!this.database) {
+      return Promise.reject(new Error('No local database connection!'));
+    }
+    
     return ObmForm.getAll(this.database);
   }
 }

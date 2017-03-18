@@ -7,6 +7,7 @@ import { MyApp } from './app.component';
 import { DynamicForm } from '../pages/dynamicForm/dynamicForm';
 import { FormSelector } from '../pages/formSelector/formSelector';
 import { Settings } from '../pages/settings/settings';
+import { NoteList } from '../pages/noteList/noteList';
 
 import { DynamicFormComponent }         from '../dynamicForm/dynamic-form.component';
 import { DynamicFormQuestionComponent } from '../dynamicForm/dynamic-form-question.component';
@@ -20,6 +21,7 @@ import { TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-tra
     DynamicForm,
     FormSelector,
     Settings,
+    NoteList,
     DynamicFormComponent,
     DynamicFormQuestionComponent
   ],
@@ -38,7 +40,8 @@ import { TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-tra
     MyApp,
     DynamicForm,
     FormSelector,
-    Settings
+    Settings,
+    NoteList
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

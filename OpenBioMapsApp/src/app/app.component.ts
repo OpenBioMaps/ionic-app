@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { DynamicForm } from '../pages/dynamicForm/dynamicForm';
 import { FormSelector } from '../pages/formSelector/formSelector';
 import { Settings } from '../pages/settings/settings';
 import { NoteList } from '../pages/noteList/noteList';
@@ -28,9 +27,18 @@ export class MyApp {
 
   constructor(public platform: Platform,
     private db: DatabaseService,
-    translate: TranslateService) {
+    private storage: StorageService,
+    private translate: TranslateService) {
     this.initializeApp();
-    translate.setDefaultLang('en');
+
+    this.storage
+      .getSettings()
+      .then(settings => {
+        if(settings) {
+          this.translate.setDefaultLang(settings.language);
+        }
+      });
+      
     this.db.init()
       .then(() => {
         this.db.loadAllForms()
