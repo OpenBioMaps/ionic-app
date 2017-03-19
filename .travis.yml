@@ -2,38 +2,44 @@ sudo: false
 language: android
 android:
   components:
-    - platform-tools
-    - tools
-    - build-tools-25
-    - android-25
-    - extra-android-support
-    - extra-google-m2repository
-    - extra-android-m2repository
+  - platform-tools
+  - tools
+  - build-tools-25
+  - android-25
+  - extra-android-support
+  - extra-google-m2repository
+  - extra-android-m2repository
 jdk:
-  - oraclejdk8
+- oraclejdk8
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8
-      - oracle-java8-installer
-      - lib32stdc++6
-      - lib32z1
+    - g++-4.8
+    - oracle-java8-installer
+    - lib32stdc++6
+    - lib32z1
 env:
+  matrix:
   - NODE_VERSION=6.1.0
-#  matrix:
-#    - CXX=g++-4.8
+  global:
+  - secure: R7SUwiv7W06lHF0RqOw0JkgVIfNX5VXq8tYfX0TSN1aTA0THiYGQuNo6NbaSDfbIBIfTKt4kB7aRWIb1AqagVivjcnDtxvqTPUrQs9e/JUvKMesWWY3dWDqcuGY226n9kCbjONPhffEdtKflSQqj7tDov8UMIQQa5ztwDS7qJKQrzP8EbUDC3wIygo2eb0bJVG5hPbuB9cJgcIqVaZ4tskL+j3xDa2ub2MTNnepmIsJqZqV74fjSOx/1na58Eb0guU3I/tasUZxQriXDfuSIPxV52JzOVa834TyDAP0yAqhGwfbnXsK/Pb/+SvDW2JlpSxGKeoVzFvEUia/rETRyBC3lM5VlM7htc0zphJyAa1BUjp7U3qhktIaBNNea9/NLEdb1C7IW22cicuRytuVUWvnkebGlvEl36AK9SbYyvdYUuMBkADzdm9sgvVA2s4p7YABb2N5eXvg2KLYuE453uHo5SUAD65hN3uqpwcaZR8KyKF0O7tVmguPuHLQCbkT3pNXkUD7oM8K2XsTztRBHlyVgR7WI0cjnSmYsyjhjRGZjh6S0JetlPDDfyxJyKN5sdd96aZnACGCR/wnyvgsjEuTnXwDLcdKFtgdW4+6PsDs5n6CRh7Eo+YzNKEYIigN8pExJM3kQY7Pkz3MV0p0cfdwSFtp5UO1j+Uc3J2Rqu7A=
+  - secure: PolKPvsGUklVIImNycj1HL+ZssczFVHKRJMK+rF4CBZuXZ/QUh6bk+Bdp5lqor/VflcfN18AEHK8fhTo4NipL7eJepXFMM+hgqkRNwIn1qLgph+ykkydwEbvild/+8Nb9lZb2ef5TXb8aPnr+uYua3zyezNoCJTUFHUpBe20MvOIT3a89C+jBlg8sJ8LzdJtjuAM+reAXMLVIorAo4swenPUf/23OdKYUn5yYngvocCPB24cViuPmqCrgeio6aiZqSROfT7QSVcu4rl30fYHv3Eez9TNACkWI3UiZEj0SUA3JlqqiuyjBsX+UmzIT82ZM62fXJuKQ1SmYQZSIFkTXfN5AD9RM2VGLOcVM8kH6xlb/E4tYn5Bjq3hVHgx2GTCRACzdY7zQuS1JkcvCEQERu7Vo6NzCRWDopTrjuk7RYT8GGkSvRiNfHz8nmyH3DU5X43Mi4OHeh3ZgAFsNa3QjMMOSow8gaU4rz99/pIyEpCjaa9YeWciD3rRU4+G+HNeSb42Ojm8xdouTckzhreM5xm5Waw0HHtBrQJczOVafz3nn/diElUUV6IzYyBlc+cHTmHPJlcU1lql0gjSAuyp7kpqczE3/ZRKS/xA0/GAqrKaAvOsKbPyg4zLRshljgFbF0YRWi8ANuLdedhUiqiBkGZzOmm4euJ1R8um+9hXJlw=
+  - secure: fv+EsvXPltH9YuyKFaXnfJiVhKPP1s35V3InneQi+uSmoFbmupgXJWxA153aRM9TS24/q0aNfAJ8ojmPKGs/f3iCZuCLl6wpNCtwNVnKw72Ab5mMP6n+6dJDVT5mZpizjhkjdN/wTgnGPYTrhc0LgCXVxAZYdCfQGIUQ+HJRs08CZewXRQXNfRv5eDPgaQaMhq2xMt/GcSYLObL94QUyPr9vKvHsAxF43hCjMiYnQURNATUkTYrgj+V7833oJvGGj8X1U6bi3CgXqjePqNYLfye8xela1Cv5zKCHWCBskgmUlsandfXrNrlpBtIaCj/d5TMFVyGgZZaA7fmju217fHlAUxLnMSP5WJ+IHB0HhxM2GbJsVsYEs2ZwBw41brOkN1py927rDQAi/JMZ0uSCFlU3G5WdhNW5L3pWKsav9y9X0QBK3ncvFSzyrlRChSX0lxLHKY0DA0nfAGZ7fcrHNTvEH3fMPMrmg9sc8JDKgokhNnihdbJQo8AHuzWkOzoe/hC27fuKCZ4JDDPueIzzYmokbm0IPcRmTm29i11E64F+v/rQ99GXyX7t7Rp3qKztZlhTE/GzJ2Z19nspzSzYDC6NklLJMHMt3HbBogs1cqT682gdk5aM506kRceC8uaTeOOTKCdOWXkz3dcEfTmow1XZziKljKIbTw7OrDnZd5Q=
+before_install:
+- openssl aes-256-cbc -K $encrypted_6eaab7d352b1_key -iv $encrypted_6eaab7d352b1_iv
+  -in obm.keystore.enc -out obm.keystore -d
 install:
-  - nvm install $NODE_VERSION
-  - npm install -g cordova ionic
+- nvm install $NODE_VERSION
+- npm install -g cordova ionic
 before_script:
-  - cd OpenBioMapsApp
+- cd OpenBioMapsApp
 script:
-  - nvm use $NODE_VERSION
-  - npm install
-  - npm run ionic:build
-  - ionic state reset
-  - ionic build android
+- nvm use $NODE_VERSION
+- npm install
+- npm run ionic:build
+- ionic state reset
+- ionic build android --release --keystore=../obm.keystore --storePassword=${KEYSTORE_PASS} --alias=${KEYSTORE_ALIAS} --password=${KEYSTORE_ALIAS_PASS}
 after_script:
-  - ls -al platforms/android/build/outputs/apk/
+- ls -al platforms/android/build/outputs/apk/
