@@ -1,10 +1,10 @@
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <form [formGroup]="form">
     <ion-list no-lines>
       <div *ngFor="let question of questions">
         <df-question [question]="question" [form]="form"></df-question>
       </div>
       <ion-item>
-        <button ion-button large block [disabled]="!form.valid">{{ "SAVE" | translate }}</button>
+        <button ion-button large block [disabled]="!form.valid" (click)="onSave()">{{ "SAVE" | translate }}</button>
       </ion-item>
     </ion-list>
   </form>

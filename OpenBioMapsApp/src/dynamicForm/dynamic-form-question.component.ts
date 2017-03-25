@@ -13,4 +13,6 @@ export class DynamicFormQuestionComponent {
 
   get isValid() { return this.form.controls[this.question.key].valid; }
   public hasError(key: string) { return this.form.controls[this.question.key].hasError(key); }
+
+  getGeolocation(){}
 }
