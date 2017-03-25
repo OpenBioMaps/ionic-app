@@ -11,17 +11,21 @@ export class ObmForm {
   private static readonly SELECT_SQL: string = `SELECT * FROM form_data`;
 
   public id: number;
+  date: string;
   url: string;
   data: string;
  
   constructor(row: {
       id?: number,
+      date: string,
       url: string,
       data: string
     }) {
     this.id = row.id;
+    this.date = new Date().toString();
     this.url = row.url;
     this.data = row.data;
+
   }
 
   public static create(db: SQLite) {
