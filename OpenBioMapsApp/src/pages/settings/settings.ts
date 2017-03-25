@@ -5,9 +5,6 @@ import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { StorageService } from '../../services/storage.service';
 import { SettingsModel } from '../../models/settings';
 
-import { Http } from '@angular/http';
-import { TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-translate/ng2-translate';
-
 import { TranslateService } from 'ng2-translate';
 
 @Component({
