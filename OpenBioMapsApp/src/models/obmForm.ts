@@ -1,4 +1,4 @@
-import {SQLite} from 'ionic-native';
+import { SQLiteObject } from '@ionic-native/sqlite';
 
 export class ObmForm {
   private static readonly CRATE_SQL: string = `CREATE TABLE IF NOT EXISTS 
@@ -24,11 +24,11 @@ export class ObmForm {
     this.data = row.data;
   }
 
-  public static create(db: SQLite) {
+  public static create(db: SQLiteObject) {
     db.executeSql(ObmForm.CRATE_SQL, {});
   }
 
-  public static getAll(db: SQLite): Promise<ObmForm[]> {
+  public static getAll(db: SQLiteObject): Promise<ObmForm[]> {
     return db.executeSql(ObmForm.SELECT_SQL, []).then((data) => {
             let result: ObmForm[] = [];
             for(var i = 0; i < data.rows.length; i++) {
@@ -41,7 +41,7 @@ export class ObmForm {
         });
   }
 
-  public insert(db: SQLite): Promise<any> {
+  public insert(db: SQLiteObject): Promise<any> {
     return db.executeSql(ObmForm.INSERT_SQL, [this.url,  this.data]).catch(error => {
         console.log("DB ERROR: " + JSON.stringify(error));
       });

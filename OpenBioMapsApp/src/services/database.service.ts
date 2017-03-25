@@ -1,41 +1,40 @@
 import { Injectable } from '@angular/core';
-import { SQLite } from 'ionic-native';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { Platform } from 'ionic-angular';
 
 import { ObmForm } from '../models/obmForm';
  
 @Injectable()
 export class DatabaseService {
+  db: SQLiteObject;
 
-  public database: SQLite;
- 
-  constructor(private platform: Platform) {}
+  constructor(private platform: Platform, private sqlite: SQLite) {}
 
   public init(): Promise<any> {
     return this.platform.ready().then(() => {
-      this.database = new SQLite();
-      return this.database.openDatabase({
+      return this.sqlite.create({
           name: "obm.db",
           location: "default"
-        }).then(() => {
-          ObmForm.create(this.database);
+        }).then((db: SQLiteObject) => {
+          this.db = db;
+          ObmForm.create(this.db);
         });
     });
   }
 
   public saveForm(data: ObmForm): Promise<any> {
-    if(!this.database) {
+    if(!this.db) {
       return Promise.reject(new Error('No local database connection!'));
     }
 
-    return data.insert(this.database);
+    return data.insert(this.db);
   }
 
   public loadAllForms(): Promise<ObmForm[]> {
-    if(!this.database) {
+    if(!this.db) {
       return Promise.reject(new Error('No local database connection!'));
     }
     
-    return ObmForm.getAll(this.database);
+    return ObmForm.getAll(this.db);
   }
 }
