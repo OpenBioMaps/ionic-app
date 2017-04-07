@@ -38,7 +38,7 @@ script:
 - npm install
 - npm run ionic:build
 - ionic state reset
-- ionic build android --release -- --keystore=../obm.keystore --storePassword=${KEYSTORE_PASS}
+- ionic build android --prod --rollup --release -- --keystore=../obm.keystore --storePassword=${KEYSTORE_PASS}
   --alias=${KEYSTORE_ALIAS} --password=${KEYSTORE_ALIAS_PASS}
 after_script:
 - ls -al platforms/android/build/outputs/apk/
@@ -46,8 +46,9 @@ deploy:
   provider: releases
   api_key:
     secure: lUncB4iU3BJheledg0lvK1Uop0Vd7QvShfAbaVznxuFWNfTQjxd9LvPEFhB5GdayF5AdIaV4JWmLu6nbyYsuY/IH3y4Xs40cknzX4MpRq/w2vKJ8Ga7PCaD0CmteL5vcnGRp+jS7TozkDyuL9PZfcbWxDPwoVJr4YDgOp9O9tixH0WDLsmbFOhCKn5fe6No9Y8JFQeQFJ0B97Fbjqo70entFLWFAFfJwbgdzyVj1xr/3FuniVSJWhugkLPmAlU/zR5YG4YuO/cwrOicBq6xgNOSeSNqzXnQ4vLO2VxGTgqoUt3vCKO2RBJCS93HQvqOQz8geSxVncBv5q6DxYr3lNEkPKx/hSIWPl1Y5EemDfx1eKKpXE+ex9IzZ9jRgdvVt7Ilr8938/Yzqu88FiSp+SMCjBAe2xgI4U8L/yj1p7aJmAq/sCRcOSMH1lxVpIi3WsYBjA/JmmSCUlLm95CR4vxoA2aXBZQLA8ahpHhGkLX6iQqTcZo6t+6b2xa1yq1nfV580fwirYR6gnpUXs6R+xsSiY1QtT9p7NQKipuvLEeRL8EYxWwNkA4Kkxd0gUGlBszS2dPz++UQeTXLrG4bF/1Wp8OERtxn9L9FaItBi4xpkfj/MR6L1Av6zD6Fn8/OrtXgE1G9y84J2Ty0GFwh7lRB5EukJuqzO1pwr7woJVdY=
-  file: platforms/android/build/outputs/apk/android-release.apk
+  file: 
+    - platforms/android/build/outputs/apk/android-armv7-release.apk
+    - platforms/android/build/outputs/apk/android-x86-release.apk
   skip_cleanup: true
   on:
     tags: true
-    
