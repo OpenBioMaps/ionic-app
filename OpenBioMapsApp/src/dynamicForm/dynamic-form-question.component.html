@@ -43,7 +43,7 @@
         [id]="question.key" [type]="text">
     
     </ion-input>
-    <button ion-button item-right (click)="getGeolocation()">get geolocation</button>
+    <button ion-button item-right (click)="getGeolocation()">{{ "GETLOCATION" | translate }}</button>
   </ion-item>
 
   <ion-item *ngSwitchCase="'autocomplete'" [formGroup]="form">

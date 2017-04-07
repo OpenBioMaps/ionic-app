@@ -6,5 +6,6 @@
     "TITLE": "Title",
     "FORM_SELECTOR": "Form Selector",
     "MENU": "Menu",
-    "NOTELIST": "Saved notes"
+    "NOTELIST": "Saved notes",
+    "GETLOCATION": "Get Geolocation"
 }

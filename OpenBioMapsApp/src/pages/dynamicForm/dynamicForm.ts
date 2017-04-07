@@ -15,7 +15,6 @@ import { ObmForm } from '../../models/obmForm';
 })
 export class DynamicForm {
   formId: number;
-  date: string;
   url: string;
   questions: any[];
 
@@ -37,7 +36,7 @@ export class DynamicForm {
     this.showToast();
 
     let formData = new ObmForm({
-        date: this.date,
+        date: new Date(),
         url: this.url,
         data: JSON.stringify(form.value)
       }

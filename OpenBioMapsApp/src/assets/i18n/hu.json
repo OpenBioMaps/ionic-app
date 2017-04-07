@@ -6,5 +6,6 @@
     "TITLE": "Cím",
     "FORM_SELECTOR": "Form választó",
     "MENU": "Menü",
-    "NOTELIST": "Mentett adatok"
+    "NOTELIST": "Mentett adatok",
+    "GETLOCATION": "Pozíció rögzítése"
 }

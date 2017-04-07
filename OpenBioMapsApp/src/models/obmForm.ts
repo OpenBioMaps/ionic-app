@@ -3,26 +3,27 @@ import { SQLiteObject } from '@ionic-native/sqlite';
 export class ObmForm {
   private static readonly CRATE_SQL: string = `CREATE TABLE IF NOT EXISTS 
                                               form_data 
-                                                (id INTEGER PRIMARY KEY AUTOINCREMENT, 
+                                                (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                                date TEXT, 
                                                 url TEXT, 
                                                 data TEXT)`;
 
-  private static readonly INSERT_SQL: string = `INSERT INTO form_data (url, data) VALUES (?, ?)`;
+  private static readonly INSERT_SQL: string = `INSERT INTO form_data (date, url, data) VALUES (?, ?, ?)`;
   private static readonly SELECT_SQL: string = `SELECT * FROM form_data`;
 
   public id: number;
-  date: string;
+  date: Date;
   url: string;
   data: string;
  
   constructor(row: {
       id?: number,
-      date: string,
+      date: Date,
       url: string,
       data: string
     }) {
     this.id = row.id;
-    this.date = new Date().toString();
+    this.date = row.date;
     this.url = row.url;
     this.data = row.data;
 
