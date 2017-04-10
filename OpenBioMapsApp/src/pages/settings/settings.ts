@@ -22,7 +22,6 @@ export class Settings {
               public translateService: TranslateService ) {
     this.settingsForm = this.formBuilder
       .group({
-        title: [''],
         url: ['', Validators.required],
         language: ['']
       });
