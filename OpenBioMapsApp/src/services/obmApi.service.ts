@@ -23,7 +23,7 @@ export class ObmApiService {
     return this.repo.loadUrl(url);
   }
 
-  upload(json: string, url: string = 'http://aries.ektf.hu/~szugyi/upload.php') {
-    return this.repo.upload(url);
+  upload(json: any, url: string = 'http://aries.ektf.hu/~szugyi/upload.php'): Promise<any> {
+    return this.repo.upload(json, url);
   }
 }

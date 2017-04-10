@@ -26,7 +26,6 @@ export class ObmForm {
     this.date = row.date;
     this.url = row.url;
     this.data = row.data;
-
   }
 
   public static create(db: SQLiteObject) {
@@ -47,7 +46,7 @@ export class ObmForm {
   }
 
   public insert(db: SQLiteObject): Promise<any> {
-    return db.executeSql(ObmForm.INSERT_SQL, [this.url,  this.data]).catch(error => {
+    return db.executeSql(ObmForm.INSERT_SQL, [ this.date, this.url, this.data]).catch(error => {
         console.log("DB ERROR: " + JSON.stringify(error));
       });
   }

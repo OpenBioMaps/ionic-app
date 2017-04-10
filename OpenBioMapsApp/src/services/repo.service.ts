@@ -31,20 +31,21 @@ export class RepoService {
         });
     }
 
-    upload(url: string) {
-      var fd = new FormData();
-      fd.append('test_text', 'Hey');
-      fd.append('test_int', 20);
+    upload(json: any, url: string): Promise<any> {
+      var fd = this.getFormData(json);
+      console.log("Form data is");
+      console.log(fd);
 
       var headers = new Headers();
       //headers.append('Content-Type', 'multipart/form-data');
 
-      this.http.post(url, fd, {headers: headers})
-      .toPromise()
-      .then(function (data) {
-        console.log(data);
-      }).catch(function (error) {
-        console.log(error);
-      });
+      return this.http.post(url, fd, {headers: headers})
+        .toPromise();
+    }
+
+    private getFormData(object) {
+      const formData = new FormData();
+      Object.keys(object).forEach(key => formData.append(key, object[key]));
+      return formData;
     }
 }

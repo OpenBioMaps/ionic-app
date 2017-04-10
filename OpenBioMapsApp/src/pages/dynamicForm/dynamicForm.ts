@@ -32,7 +32,6 @@ export class DynamicForm {
   }
 
   onSubmitted(form: FormGroup) {
-    this.api.upload(JSON.stringify(form.value));
     this.showToast();
 
     let formData = new ObmForm({
@@ -40,11 +39,11 @@ export class DynamicForm {
         url: this.url,
         data: JSON.stringify(form.value)
       }
-    )
+    );
     this.db.saveForm(formData)
       .catch(error => {
         console.log(error);
-      })
+      });
   }
 
   showToast() {
