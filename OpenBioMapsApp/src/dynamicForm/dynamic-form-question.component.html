@@ -40,7 +40,7 @@
    <ion-item *ngSwitchCase="'point'" [formGroup]="form">
     <ion-label floating>{{question.short_name}}</ion-label>
     <ion-input [formControlName]="question.key"
-        [id]="question.key" [type]="text">
+        [id]="question.key" [type]="text" [(ngModel)]="val">
     
     </ion-input>
     <button ion-button item-right (click)="getGeolocation()">{{ "GETLOCATION" | translate }}</button>

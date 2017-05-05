@@ -10,7 +10,7 @@
 
 <ion-content padding>
 <ion-list>
-  <button ion-item *ngFor="let res of result">
+  <button ion-item *ngFor="let res of result" (click)="onItemClick()">
     {{res.date}}
   </button>
 </ion-list>

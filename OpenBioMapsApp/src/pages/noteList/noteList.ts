@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { DatabaseService } from '../../services/database.service';
 import { SyncService } from '../../services/sync.service';
 import { ObmForm } from '../../models/obmForm';
+import { SavedNote } from '../savedNote/savedNote';
 
 /*
   Generated class for the NoteList page.
@@ -28,5 +29,9 @@ export class NoteList {
       .catch(error => {
         console.log(error);
       });
+  }
+
+  onItemClick(){
+    
   }
 }
