@@ -7,5 +7,7 @@
     "FORM_SELECTOR": "Form Selector",
     "MENU": "Menu",
     "NOTELIST": "Saved notes",
-    "GETLOCATION": "Get Geolocation"
+    "GETLOCATION": "Get Geolocation",
+    "GPSDISABLEDTITLE": "GPS is disabled",
+    "GPSDISABLEDMSG": "GPS is disabled on your device. Please check your settings!"
 }

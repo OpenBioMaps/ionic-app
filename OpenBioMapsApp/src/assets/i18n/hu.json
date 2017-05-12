@@ -7,5 +7,7 @@
     "FORM_SELECTOR": "Form választó",
     "MENU": "Menü",
     "NOTELIST": "Mentett adatok",
-    "GETLOCATION": "Pozíció rögzítése"
+    "GETLOCATION": "Pozíció rögzítése",
+    "GPSDISABLEDTITLE": "A GPS nem elérhető",
+    "GPSDISABLEDMSG": "A GPS nem elérhető, kérem ellenőrizze a beállításokat!"
 }
