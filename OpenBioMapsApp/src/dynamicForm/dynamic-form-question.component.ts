@@ -15,6 +15,8 @@ export class DynamicFormQuestionComponent {
   @Input() question: QuestionBase<any>;
   @Input() form: FormGroup;
   val: string = null;
+  lat: number;
+  long: number;
 
 
   constructor(private geolocation: Geolocation,
@@ -31,6 +33,8 @@ export class DynamicFormQuestionComponent {
         this.geolocation.getCurrentPosition().then((resp) => {
           console.log("koordináták:" + resp.coords.latitude.toString() + ',' + resp.coords.longitude.toString());
           this.val = resp.coords.latitude.toString() + ',' + resp.coords.longitude.toString();
+          this.lat = resp.coords.latitude;
+          this.long = resp.coords.longitude;
         })
       }
       else {
@@ -47,5 +51,9 @@ export class DynamicFormQuestionComponent {
         alert.present();
       }
     })
+  }
+  gotoGoogleMaps(){
+
+
   }
 }

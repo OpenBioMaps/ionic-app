@@ -2,15 +2,14 @@
 
   <ion-item *ngSwitchCase="'text'" [formGroup]="form">
     <ion-label floating>{{question.short_name}}</ion-label>
-    <ion-input [formControlName]="question.key"
-        [id]="question.key" [type]=string>
+    <ion-input [formControlName]="question.key" [id]="question.key" [type]=string>
     </ion-input>
   </ion-item>
 
-  <ion-item *ngSwitchCase="'dropdown'"  [formGroup]="form">
+  <ion-item *ngSwitchCase="'dropdown'" [formGroup]="form">
     <ion-label floating>{{question.short_name}}</ion-label>
-    <ion-select [formControlName]="question.key" [id]="question.key" >
-        <ion-option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</ion-option>
+    <ion-select [formControlName]="question.key" [id]="question.key">
+      <ion-option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</ion-option>
     </ion-select>
   </ion-item>
 
@@ -27,29 +26,41 @@
 
   <ion-item *ngSwitchCase="'date'" [formGroup]="form">
     <ion-label floating>{{question.short_name}}</ion-label>
-    <ion-datetime displayFormat="YYYY/MM/DD" pickerFormat="YYYY MM DD" [formControlName]="question.key"
-        [id]="question.key">
+    <ion-datetime displayFormat="YYYY/MM/DD" pickerFormat="YYYY MM DD" [formControlName]="question.key" [id]="question.key">
     </ion-datetime>
   </ion-item>
 
-   <ion-item *ngSwitchCase="'boolen'" [formGroup]="form">
-     <ion-label fixed>{{question.short_name}}</ion-label>
+  <ion-item *ngSwitchCase="'boolen'" [formGroup]="form">
+    <ion-label fixed>{{question.short_name}}</ion-label>
     <ion-checkbox ng-model="isChecked"></ion-checkbox>
   </ion-item>
 
-   <ion-item *ngSwitchCase="'point'" [formGroup]="form">
-    <ion-label floating>{{question.short_name}}</ion-label>
-    <ion-input [formControlName]="question.key"
-        [id]="question.key" [type]="text" [(ngModel)]="val">
-    
-    </ion-input>
-    <button ion-button item-right (click)="getGeolocation()">{{ "GETLOCATION" | translate }}</button>
-  </ion-item>
+  <ion-grid *ngSwitchCase="'point'" [formGroup]="form">
+    <ion-row>
+      <ion-col col-auto>
+        <ion-item>
+          <ion-input placeholder="{{question.short_name}}" [formControlName]="question.key" [id]="question.key" [type]="text" [(ngModel)]="val">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <button ion-button (click)="getGeolocation()">
+          <ion-icon name="pin"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button full (click)="gotoGoogleMaps()">
+          <ion-icon name="map"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <ion-item *ngSwitchCase="'autocomplete'" [formGroup]="form">
     <ion-label floating>{{question.short_name}}</ion-label>
-    <ion-input [formControlName]="question.key"
-        [id]="question.key" [type]="text">
+    <ion-input [formControlName]="question.key" [id]="question.key" [type]="text">
     </ion-input>
   </ion-item>
 
