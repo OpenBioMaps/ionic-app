@@ -31,10 +31,11 @@ export class DynamicFormQuestionComponent {
     this.diagnostic.isGpsLocationAvailable().then((result) => {
       if (result) {
         this.geolocation.getCurrentPosition().then((resp) => {
-          console.log("koordináták:" + resp.coords.latitude.toString() + ',' + resp.coords.longitude.toString());
-          this.val = resp.coords.latitude.toString() + ',' + resp.coords.longitude.toString();
           this.lat = resp.coords.latitude;
           this.long = resp.coords.longitude;
+          console.log("koordináták:" + resp.coords.latitude.toString() + ',' + resp.coords.longitude.toString());
+          this.val = resp.coords.latitude.toString() + ',' + resp.coords.longitude.toString();
+          document.getElementById("url").setAttribute("href", "geo:?q="+this.lat+","+this.long);
         })
       }
       else {
@@ -51,9 +52,5 @@ export class DynamicFormQuestionComponent {
         alert.present();
       }
     })
-  }
-  gotoGoogleMaps(){
-
-
   }
 }

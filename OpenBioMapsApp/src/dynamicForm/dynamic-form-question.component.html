@@ -38,22 +38,18 @@
   <ion-grid *ngSwitchCase="'point'" [formGroup]="form">
     <ion-row>
       <ion-col col-auto>
-        <ion-item>
-          <ion-input placeholder="{{question.short_name}}" [formControlName]="question.key" [id]="question.key" [type]="text" [(ngModel)]="val">
-          </ion-input>
-        </ion-item>
+        <ion-input placeholder="{{question.short_name}}" [formControlName]="question.key" [id]="question.key" [type]="text" [(ngModel)]="val">
+        </ion-input>
       </ion-col>
       <ion-col>
-        <button ion-button (click)="getGeolocation()">
+        <button ion-button item-right (click)="getGeolocation()">
           <ion-icon name="pin"></ion-icon>
         </button>
       </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <button ion-button full (click)="gotoGoogleMaps()">
-          <ion-icon name="map"></ion-icon>
-        </button>
+       <ion-col>
+        <a button ion-button href="" target="_system" id="url">
+           <ion-icon name="map"></ion-icon>
+        </a>
       </ion-col>
     </ion-row>
   </ion-grid>
