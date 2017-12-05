@@ -1,4 +1,6 @@
 ![build status][build-status]
+# Deprecated
+Due to the limitations of the Ionic/Cordova platform the devlopment of the cross-platform client application has been abandoned in favor of the native Android client implementation which you can find here: [Android client repo](https://github.com/OpenBioMaps/android-app)
 
 # ionic-app
 The cross-platform client application for OpenBioMaps to support data collection on the field
